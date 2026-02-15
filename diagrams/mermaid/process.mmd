@@ -1,0 +1,20 @@
+```mermaid
+flowchart TD
+    Start --> A[Identify a Suitable Task];
+    A --> B[Open the GitHub repository];
+    B --> C[Navigate to the repository homepage];
+    C --> D{Verify Originality: Scan existing issues};
+    D -- "Task Exists" --> End;
+    D -- "Task is New" --> E[Initiate New Issue];
+    E --> F{Template Available?};
+    F -- "Yes" --> G[Select Appropriate Template];
+    F -- "No" --> H[Use Blank Issue];
+    G --> I[Draft the Title];
+    H --> I;
+    I --> J[Write the Description];
+    J --> K[Review for Clarity];
+    K --> L[Apply Labels];
+    L --> M[Determine Assignment: Leave Unassigned];
+    M --> N[Publish: Submit new issue];
+    N --> End;
+```
