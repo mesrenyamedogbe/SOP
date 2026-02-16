@@ -22,74 +22,23 @@
         <bpmn:flowNodeRef>EndEvent_TaskExists</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:startEvent id="StartEvent_1" name="Start">
-      <bpmn:outgoing>Flow_1</bpmn:outgoing>
-    </bpmn:startEvent>
-    <bpmn:task id="Task_IdentifyTask" name="Identify a Suitable Task">
-      <bpmn:incoming>Flow_1</bpmn:incoming>
-      <bpmn:outgoing>Flow_2</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_OpenRepository" name="Open the GitHub repository">
-      <bpmn:incoming>Flow_2</bpmn:incoming>
-      <bpmn:outgoing>Flow_3</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_NavigateToHomepage" name="Navigate to the repository homepage">
-      <bpmn:incoming>Flow_3</bpmn:incoming>
-      <bpmn:outgoing>Flow_4</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:exclusiveGateway id="Gateway_VerifyOriginality" name="Verify Originality">
-      <bpmn:incoming>Flow_4</bpmn:incoming>
-      <bpmn:outgoing>Flow_TaskExists</bpmn:outgoing>
-      <bpmn:outgoing>Flow_TaskIsNew</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:task id="Task_InitiateNewIssue" name="Initiate New Issue">
-      <bpmn:incoming>Flow_TaskIsNew</bpmn:incoming>
-      <bpmn:outgoing>Flow_5</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:exclusiveGateway id="Gateway_TemplateAvailable" name="Template Available?">
-      <bpmn:incoming>Flow_5</bpmn:incoming>
-      <bpmn:outgoing>Flow_Yes</bpmn:outgoing>
-      <bpmn:outgoing>Flow_No</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:task id="Task_SelectTemplate" name="Select Appropriate Template">
-      <bpmn:incoming>Flow_Yes</bpmn:incoming>
-      <bpmn:outgoing>Flow_6</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_UseBlankIssue" name="Use Blank Issue">
-      <bpmn:incoming>Flow_No</bpmn:incoming>
-      <bpmn:outgoing>Flow_7</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_DraftTitle" name="Draft the Title">
-      <bpmn:incoming>Flow_6</bpmn:incoming>
-      <bpmn:incoming>Flow_7</bpmn:incoming>
-      <bpmn:outgoing>Flow_8</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_WriteDescription" name="Write the Description">
-      <bpmn:incoming>Flow_8</bpmn:incoming>
-      <bpmn:outgoing>Flow_9</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_ReviewForClarity" name="Review for Clarity">
-      <bpmn:incoming>Flow_9</bpmn:incoming>
-      <bpmn:outgoing>Flow_10</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_ApplyLabels" name="Apply Labels">
-      <bpmn:incoming>Flow_10</bpmn:incoming>
-      <bpmn:outgoing>Flow_11</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_DetermineAssignment" name="Determine Assignment">
-      <bpmn:incoming>Flow_11</bpmn:incoming>
-      <bpmn:outgoing>Flow_12</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Task_Publish" name="Publish">
-      <bpmn:incoming>Flow_12</bpmn:incoming>
-      <bpmn:outgoing>Flow_13</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:endEvent id="EndEvent_1" name="End">
-      <bpmn:incoming>Flow_13</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:endEvent id="EndEvent_TaskExists" name="Task Exists">
-      <bpmn:incoming>Flow_TaskExists</bpmn:incoming>
-    </bpmn:endEvent>
+    <bpmn:startEvent id="StartEvent_1" name="Start" />
+    <bpmn:task id="Task_IdentifyTask" name="Identify a Suitable Task" />
+    <bpmn:task id="Task_OpenRepository" name="Open the GitHub repository" />
+    <bpmn:task id="Task_NavigateToHomepage" name="Navigate to the repository homepage" />
+    <bpmn:exclusiveGateway id="Gateway_VerifyOriginality" name="Verify Originality" />
+    <bpmn:task id="Task_InitiateNewIssue" name="Initiate New Issue" />
+    <bpmn:exclusiveGateway id="Gateway_TemplateAvailable" name="Template Available?" />
+    <bpmn:task id="Task_SelectTemplate" name="Select Appropriate Template" />
+    <bpmn:task id="Task_UseBlankIssue" name="Use Blank Issue" />
+    <bpmn:task id="Task_DraftTitle" name="Draft the Title" />
+    <bpmn:task id="Task_WriteDescription" name="Write the Description" />
+    <bpmn:task id="Task_ReviewForClarity" name="Review for Clarity" />
+    <bpmn:task id="Task_ApplyLabels" name="Apply Labels" />
+    <bpmn:task id="Task_DetermineAssignment" name="Determine Assignment" />
+    <bpmn:task id="Task_Publish" name="Publish" />
+    <bpmn:endEvent id="EndEvent_1" name="End" />
+    <bpmn:endEvent id="EndEvent_TaskExists" name="Task Exists" />
     <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_IdentifyTask" />
     <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_IdentifyTask" targetRef="Task_OpenRepository" />
     <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_OpenRepository" targetRef="Task_NavigateToHomepage" />
@@ -108,4 +57,136 @@
     <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_DetermineAssignment" targetRef="Task_Publish" />
     <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_Publish" targetRef="EndEvent_1" />
   </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="Lane_Maintainer_di" bpmnElement="Lane_Maintainer" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1600" height="300" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="210" y="190" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_IdentifyTask_di" bpmnElement="Task_IdentifyTask">
+        <dc:Bounds x="300" y="168" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_OpenRepository_di" bpmnElement="Task_OpenRepository">
+        <dc:Bounds x="440" y="168" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_NavigateToHomepage_di" bpmnElement="Task_NavigateToHomepage">
+        <dc:Bounds x="580" y="168" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_VerifyOriginality_di" bpmnElement="Gateway_VerifyOriginality" isMarkerVisible="true">
+        <dc:Bounds x="725" y="183" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_TaskExists_di" bpmnElement="EndEvent_TaskExists">
+        <dc:Bounds x="732" y="290" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_InitiateNewIssue_di" bpmnElement="Task_InitiateNewIssue">
+        <dc:Bounds x="820" y="168" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_TemplateAvailable_di" bpmnElement="Gateway_TemplateAvailable" isMarkerVisible="true">
+        <dc:Bounds x="965" y="183" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_SelectTemplate_di" bpmnElement="Task_SelectTemplate">
+        <dc:Bounds x="1060" y="110" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_UseBlankIssue_di" bpmnElement="Task_UseBlankIssue">
+        <dc:Bounds x="1060" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_DraftTitle_di" bpmnElement="Task_DraftTitle">
+        <dc:Bounds x="1200" y="168" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_WriteDescription_di" bpmnElement="Task_WriteDescription">
+        <dc:Bounds x="1330" y="168" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ReviewForClarity_di" bpmnElement="Task_ReviewForClarity">
+        <dc:Bounds x="1460" y="168" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ApplyLabels_di" bpmnElement="Task_ApplyLabels">
+        <dc:Bounds x="1590" y="168" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_DetermineAssignment_di" bpmnElement="Task_DetermineAssignment">
+        <dc:Bounds x="1590" y="270" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Publish_di" bpmnElement="Task_Publish">
+        <dc:Bounds x="1720" y="270" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1752" y="190" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="246" y="208" />
+        <di:waypoint x="300" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="400" y="208" />
+        <di:waypoint x="440" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="540" y="208" />
+        <di:waypoint x="580" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="680" y="208" />
+        <di:waypoint x="725" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_TaskExists_di" bpmnElement="Flow_TaskExists">
+        <di:waypoint x="750" y="233" />
+        <di:waypoint x="750" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_TaskIsNew_di" bpmnElement="Flow_TaskIsNew">
+        <di:waypoint x="775" y="208" />
+        <di:waypoint x="820" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="920" y="208" />
+        <di:waypoint x="965" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Yes_di" bpmnElement="Flow_Yes">
+        <di:waypoint x="990" y="183" />
+        <di:waypoint x="990" y="150" />
+        <di:waypoint x="1060" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_No_di" bpmnElement="Flow_No">
+        <di:waypoint x="990" y="233" />
+        <di:waypoint x="990" y="280" />
+        <di:waypoint x="1060" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="1160" y="150" />
+        <di:waypoint x="1180" y="150" />
+        <di:waypoint x="1180" y="208" />
+        <di:waypoint x="1200" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="1160" y="280" />
+        <di:waypoint x="1180" y="280" />
+        <di:waypoint x="1180" y="208" />
+        <di:waypoint x="1200" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="1300" y="208" />
+        <di:waypoint x="1330" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="1430" y="208" />
+        <di:waypoint x="1460" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1560" y="208" />
+        <di:waypoint x="1590" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1640" y="248" />
+        <di:waypoint x="1640" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1690" y="310" />
+        <di:waypoint x="1720" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
+        <di:waypoint x="1770" y="270" />
+        <di:waypoint x="1770" y="226" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
 </bpmn:definitions>
