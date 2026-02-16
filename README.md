@@ -18,7 +18,7 @@ This repository contains the following documentation artifacts:
 ## Regeneration Instructions
 
 ### Prerequisites
--   [Gemini CLI](https://github.com/google/gemini-cli) installed and configured.
+-   Gemini CLI installed and configured.
 -   `git` installed and configured.
 -   A work environment of your choice (I used VS Code)
 
