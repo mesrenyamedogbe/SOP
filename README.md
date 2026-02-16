@@ -10,10 +10,13 @@ This repository serves as a reference for open-source maintainers who want to cr
 ## Artifacts
 This repository contains the following documentation artifacts:
 
--   **`SOP-v1.md`**: The main Standard Operating Procedure document. It outlines the purpose, scope, roles, and a step-by-step process for creating beginner-friendly issues on GitHub.
--   **`diagrams/mermaid/process.mmd`**: A Mermaid flowchart that provides a simple visual representation of the process described in `SOP-v1.md`. An image of the Mermaid diagram is also available at `diagrams/mermaid/image.png`.
--   **`diagrams/bpmn/process.bpmn`**: A BPMN 2.0 XML file that provides a more formal and detailed model of the process, including lanes for roles and gateways for decisions. An image of the BPMN diagram is also available at `diagrams/bpmn/image.png`.
--   **`prompt-log/week05-cli-log.md`**: A detailed log of the prompts and interactions with the Gemini CLI that were used to generate the artifacts in this repository. This file is useful for understanding the history of the project and for regenerating the artifacts.
+- [SOP-v1.md](SOP-v1.md) : The main Standard Operating Procedure document. It outlines the purpose, scope, roles, and a step-by-step process for creating beginner-friendly issues on GitHub.
+- [diagrams/mermaid/process.mmd](diagrams/mermaid/process.mmd): A Mermaid flowchart that provides a simple visual representation of the process described in `SOP-v1.md`. An image of the Mermaid diagram is also available at [diagrams/mermaid/image.png](diagrams/mermaid/image.png).
+- [diagrams/bpmn/process.bpmn](diagrams/bpmn/process.bpmn): A BPMN 2.0 XML file that provides a more formal and detailed model of the process, including lanes for roles and gateways for decisions. An image of the BPMN diagram is also available at [diagrams/bpmn/image.png](diagrams/bpmn/image.png).
+- [prompt-log/week05-cli-log.md](prompt-log/week05-cli-log.md): A detailed log of the prompts and interactions with the Gemini CLI that were used to generate the artifacts in this repository. This file is useful for understanding the history of the project and for regenerating the artifacts.
+- [glossary](Project_Glossary.md): Definition of specific terms
+- [prompt log](prompt-log/week05-cli-log.md)
+
 
 ## Regeneration Instructions
 
