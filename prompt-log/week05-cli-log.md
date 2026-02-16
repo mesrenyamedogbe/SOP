@@ -79,4 +79,5 @@ Write the output to diagrams/mermaid/process.mmd. in the GitHub repository
     - [.gitignore](.gitignore)
     - [prompt-log/week05-cli-log.md](prompt-log/week05-cli-log.md)
     - [readme](prompt-log/week05-cli-log.md)
+    - [glossary](Project_Glossary.md)
 
