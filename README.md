@@ -1,36 +1,33 @@
-# SOP Documentation Regeneration
+# Standard Operating Procedure for Creating Beginner-Friendly Open Source Issues
 
-This document provides instructions on how to regenerate the documentation artifacts in this repository.
+This readme provides instructions on how to regenerate the documentation artifacts in this repository.
 
-## Prerequisites
+Before we start, the repository contains the documentation and process models for a Standard Operating Procedure (SOP) on "Creating Beginner-Friendly Open Source Issues". It is a non-code project focused on documenting a process for open-source maintainers. The repository includes the SOP itself, visual diagrams of the process in Mermaid and BPMN formats, and a log of the prompts used to generate these artifacts.
 
--   [Gemini CLI](https://github.com/google/gemini-cli) installed and configured.
--   `git` installed and configured.
+## Usage
+This repository serves as a reference for open-source maintainers who want to create a welcoming environment for new contributors. The `SOP-v1.md` file can be used as a guide for creating "good first issues". The diagrams in the `diagrams` directory can be used to visualize and understand the process. The `prompt-log` can be used as a learning resource for using the Gemini CLI for similar documentation and process modeling tasks.
 
 ## Artifacts
-
 This repository contains the following documentation artifacts:
 
--   `SOP-v1.md`: The Standard Operating Procedure in Markdown format.
--   `diagrams/mermaid/process.mmd`: A Mermaid flowchart of the SOP.
--   `diagrams/bpmn/process.bpmn`: A BPMN 2.0 XML representation of the SOP.
--   `prompt-log/week05-cli-log.md`: A log of the prompts used to generate the artifacts.
+-   **`SOP-v1.md`**: The main Standard Operating Procedure document. It outlines the purpose, scope, roles, and a step-by-step process for creating beginner-friendly issues on GitHub.
+-   **`diagrams/mermaid/process.mmd`**: A Mermaid flowchart that provides a simple visual representation of the process described in `SOP-v1.md`. An image of the Mermaid diagram is also available at `diagrams/mermaid/image.png`.
+-   **`diagrams/bpmn/process.bpmn`**: A BPMN 2.0 XML file that provides a more formal and detailed model of the process, including lanes for roles and gateways for decisions. An image of the BPMN diagram is also available at `diagrams/bpmn/image.png`.
+-   **`prompt-log/week05-cli-log.md`**: A detailed log of the prompts and interactions with the Gemini CLI that were used to generate the artifacts in this repository. This file is useful for understanding the history of the project and for regenerating the artifacts.
 
 ## Regeneration Instructions
 
+### Prerequisites
+-   [Gemini CLI](https://github.com/google/gemini-cli) installed and configured.
+-   `git` installed and configured.
+-   A work environment of your choice (I used VS Code)
+
 ### 1. SOP-v1.md
+To regenerate `SOP-v1.md`, you need to define 
 
-To regenerate `SOP-v1.md`, you need the original `SOP v1.docx` file. Since the `.docx` file is not in this repository, this step is not fully reproducible from the repository content alone. However, if you have the content of the `.docx` file, you can use the following prompt with the Gemini CLI:
-
-```
-here is my GitHub repo https://github.com/mesrenyamedogbe/SOP . Help me push the SOP v1 document to this repo as a .md file
-
-[Paste the content of the SOP v1.docx file here]
-```
 
 ### 2. diagrams/mermaid/process.mmd
-
-To regenerate the Mermaid flowchart, use the following prompt with the Gemini CLI:
+To regenerate the Mermaid flowchart code, use the following prompt with the Gemini CLI:
 
 ```
 Read SOP-v1.md and generate Mermaid flowchart code (flowchart TD) that matches the procedure exactly.
@@ -41,8 +38,11 @@ Read SOP-v1.md and generate Mermaid flowchart code (flowchart TD) that matches t
 
 Then, write the output to `diagrams/mermaid/process.mmd`.
 
-### 3. diagrams/bpmn/process.bpmn
+### 3. diagrams/mermaid/image.mmd
+To regenerate the Mermaid flowchart, use Mermaid.ai to generate the flowchart using the code.
 
+
+### 4. diagrams/bpmn/process.bpmn
 To regenerate the BPMN 2.0 XML file, use the following prompt with the Gemini CLI:
 
 ```
@@ -55,18 +55,10 @@ Read SOP-v1.md, generate a BPMN 2.0 XML file for the process.
 
 Then, write the output to `diagrams/bpmn/process.bpmn`.
 
-### 4. prompt-log/week05-cli-log.md
+### 5. diagrams/bpmn/image.mmd
+To regenerate the BPMN image, use Camunda to generate it using the .xml code that was generated.
 
-To regenerate the prompt log, use the following prompt with the Gemini CLI:
 
-```
-Create a file prompt-log/week05-cli-log.md and use the structure below to help record all the prompt log then wait for my validation:
-
-[Paste the template from the original prompt here]
-```
-
-Then, to update the prompt log with all the prompts used, use the following prompt:
-
-```
-gather all the prompts I have used and put them in the "prompt" section in the week05-cli-log.md file
+### 6. prompt-log/week05-cli-log.md
+Ensure that you keep a prompt log to capture your process as seen in the prompt-log
 ```
