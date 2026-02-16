@@ -13,8 +13,8 @@
 - SOP-v1.md
 - diagrams/mermaid/process.mmd
 - diagrams/bpmn/process.bpmn
- 
-## Prompt
+
+
 ```
 Create a file prompt-log/week05-cli-log.md and use the structure below to help record all the prompt log then wait for my validation: 
 
@@ -50,6 +50,19 @@ Create a file prompt-log/week05-cli-log.md and use the structure below to help r
 - Final files committed: 
 - Commit hash (optional):
 ```
+
+ 
+## Prompt2
+1. `how can I create a GitHub Repository for this project?`
+2. `here is my GitHub repo https://github.com/mesrenyamedogbe/SOP . Help me push the SOP v1 document to this repo as a .md file`
+3. `Read SOP-v1.md and generate Mermaid flowchart code (flowchart TD) that matches the procedure exactly. - Include explicit Start and End. - Every decision has labeled branches. - Do NOT invent steps. If missing, mark as [TBD] as a note.`
+4. `Read SOP-v1.md and generate Mermaid flowchart code (flowchart TD) that matches the procedure exactly. - Include explicit Start and End. - Every decision has labeled branches. - Do NOT invent steps. If missing, mark as [TBD] as a note.`
+5. `Write the output to diagrams/mermaid/process.mmd. in the GitHub repository`
+6. `I just added an image to the diagrams/mermaid/ foler, push it to GitHub.`
+7. `Read SOP-v1.md, generate a BPMN 2.0 XML file for the process. - Start event + end event required. - Use tasks for steps, gateways for decisions. - Use lanes ONLY if roles differ materially. - Do NOT invent systems or approvals.`
+8. `I just made some edits to the process.bpmn file. Check it out.`
+9. `Create a file prompt-log/week05-cli-log.md and use the structure below to help record all the prompt log then wait for my validation: ...`
+10. `gather all the prompts I have used and put them in the "prompt" section in the week05-cli-log.md file`
  
 ## Output summary
 - Files created/modified:
