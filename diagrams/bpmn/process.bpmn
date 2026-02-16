@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Maintainer" name="Maintainer">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_IdentifyTask</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_OpenRepository</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_NavigateToHomepage</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_VerifyOriginality</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InitiateNewIssue</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_TemplateAvailable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SelectTemplate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_UseBlankIssue</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DraftTitle</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_WriteDescription</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewForClarity</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ApplyLabels</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DetermineAssignment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Publish</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_TaskExists</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_IdentifyTask" name="Identify a Suitable Task">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_OpenRepository" name="Open the GitHub repository">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_NavigateToHomepage" name="Navigate to the repository homepage">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_VerifyOriginality" name="Verify Originality">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_TaskExists</bpmn:outgoing>
+      <bpmn:outgoing>Flow_TaskIsNew</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Task_InitiateNewIssue" name="Initiate New Issue">
+      <bpmn:incoming>Flow_TaskIsNew</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_TemplateAvailable" name="Template Available?">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_Yes</bpmn:outgoing>
+      <bpmn:outgoing>Flow_No</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Task_SelectTemplate" name="Select Appropriate Template">
+      <bpmn:incoming>Flow_Yes</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_UseBlankIssue" name="Use Blank Issue">
+      <bpmn:incoming>Flow_No</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_DraftTitle" name="Draft the Title">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_WriteDescription" name="Write the Description">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_ReviewForClarity" name="Review for Clarity">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_ApplyLabels" name="Apply Labels">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_DetermineAssignment" name="Determine Assignment">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_Publish" name="Publish">
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_1" name="End">
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_TaskExists" name="Task Exists">
+      <bpmn:incoming>Flow_TaskExists</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_IdentifyTask" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_IdentifyTask" targetRef="Task_OpenRepository" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_OpenRepository" targetRef="Task_NavigateToHomepage" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_NavigateToHomepage" targetRef="Gateway_VerifyOriginality" />
+    <bpmn:sequenceFlow id="Flow_TaskExists" name="Task Exists" sourceRef="Gateway_VerifyOriginality" targetRef="EndEvent_TaskExists" />
+    <bpmn:sequenceFlow id="Flow_TaskIsNew" name="Task is New" sourceRef="Gateway_VerifyOriginality" targetRef="Task_InitiateNewIssue" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_InitiateNewIssue" targetRef="Gateway_TemplateAvailable" />
+    <bpmn:sequenceFlow id="Flow_Yes" name="Yes" sourceRef="Gateway_TemplateAvailable" targetRef="Task_SelectTemplate" />
+    <bpmn:sequenceFlow id="Flow_No" name="No" sourceRef="Gateway_TemplateAvailable" targetRef="Task_UseBlankIssue" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_SelectTemplate" targetRef="Task_DraftTitle" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_UseBlankIssue" targetRef="Task_DraftTitle" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_DraftTitle" targetRef="Task_WriteDescription" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_WriteDescription" targetRef="Task_ReviewForClarity" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_ReviewForClarity" targetRef="Task_ApplyLabels" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_ApplyLabels" targetRef="Task_DetermineAssignment" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_DetermineAssignment" targetRef="Task_Publish" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_Publish" targetRef="EndEvent_1" />
+  </bpmn:process>
+</bpmn:definitions>
