@@ -1,7 +1,8 @@
 # Week 05 CLI Prompt Log
  
 ## Tool + environment
-- Tool: Gemini CLI
+- Tools: Gemini CLI, Gemini, Mermaid.ai and Camunda.
+- Environment: Visual Studio Code
 - Date/time: 2026-02-15 15:30:00 (approx)
 - Repo/branch: https://github.com/mesrenyamedogbe/SOP / master
  
@@ -11,21 +12,21 @@
  
 ## Inputs (files referenced)
 - SOP-v1.md
-- diagrams/mermaid/process.mmd
-- diagrams/bpmn/process.bpmn
 
 
 ```
 ### Prompt 1:
-`Read SOP-v1.md and generate Mermaid flowchart code (flowchart TD) that matches the procedure exactly. - Include explicit Start and End. - Every decision has labeled branches. - Do NOT invent steps. If missing, mark as [TBD] as a note.` 
+`Read SOP-v1.md and generate Mermaid flowchart code (flowchart TD) that matches the procedure exactly. 
+- Include explicit Start and End. 
+- Every decision has labeled branches. 
+- Do NOT invent steps. If missing, mark as [TBD] as a note.` 
 
 ### Output summary 
-- Files created/modified: 
-- What the tool produced (high-level): 
+- What the tool produced:   
  
 ### Validation performed 
-- What I checked (SOP alignment, decisions, start/end, exceptions): 
-- What was wrong / missing: 
+- I checked that it aligned with the SOP
+- Made sure that the start, decisions and end were correct 
  
 ### Human edits I made 
 - Specific changes I made after the tool output: 
@@ -38,18 +39,30 @@
 ```
 ### Prompt 2:
  `Write the output to diagrams/mermaid/process.mmd. in the GitHub repository`
-
+ 
+### Result
 
 ```
 
 
 ```
 ### Prompt 3:
-`Read SOP-v1.md, generate a BPMN 2.0 XML file for the process. - Start event + end event required. - Use tasks for steps, gateways for decisions. - Use lanes ONLY if roles differ materially. - Do NOT invent systems or approvals.`
+`Read SOP-v1.md, generate a BPMN 2.0 XML file for the process. - Start event + end event required. 
+- Use tasks for steps, gateways for decisions. 
+- Use lanes ONLY if roles differ materially. 
+- Do NOT invent systems or approvals.`
 
-`I just made some edits to the process.bpmn file. Check it out.`
-`Create a file prompt-log/week05-cli-log.md and use the structure below to help record all the prompt log then wait for my validation: ...`
+### Output summary 
+- What the tool produced: an xml code that was later refined using Gemini   
+ 
+### Validation performed 
+- Used the xml code to generate the bpmn but failed. Therefore I ran the code through Gemini to check for changes. 
+ 
+ 
+### Result
 
+
+```
  
 ## Output summary
 - Files created/modified:
